@@ -26,7 +26,7 @@ var closedList []Node
 func main() {
 
 	rand.Seed(time.Now().UnixMilli())
-	for i := 0; i < 200000; i++ {
+	for i := 0; i < 300000; i++ {
 		node := Node{
 			x: rand.Intn(800),
 			y: rand.Intn(600),
@@ -73,12 +73,12 @@ func findPath(xStart, yStart, xGoal, yGoal int) (Path, bool) {
 		gfx.UpdateAus()
 		gfx.Stiftfarbe(0, 0, 0)
 		gfx.Cls()
-		gfx.Stiftfarbe(255, 255, 100)
+		gfx.Stiftfarbe(0, 255, 0)
 		for _, node := range recustructPath(currentNode).nodes {
 			gfx.Punkt(uint16(node.x), uint16(node.y))
 		}
 		for _, obstacle := range obstacles {
-			gfx.Stiftfarbe(255, 0, 0)
+			gfx.Stiftfarbe(150, 0, 0)
 			gfx.Punkt(uint16(obstacle.x), uint16(obstacle.y))
 		}
 		gfx.UpdateAn()
