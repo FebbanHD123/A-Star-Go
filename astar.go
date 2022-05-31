@@ -26,7 +26,7 @@ var closedList []Node
 func main() {
 
 	rand.Seed(time.Now().UnixMilli())
-	for i := 0; i < 300000; i++ {
+	for i := 0; i < 30000; i++ {
 		node := Node{
 			x: rand.Intn(800),
 			y: rand.Intn(600),
@@ -35,7 +35,7 @@ func main() {
 	}
 
 	gfx.Fenster(800, 600)
-	path, found := findPath(1, 1, 799, 599)
+	path, found := findPath(1, 1, rand.Intn(800), rand.Intn(600))
 	fmt.Println("found")
 	if found {
 		gfx.Stiftfarbe(0, 0, 0)
